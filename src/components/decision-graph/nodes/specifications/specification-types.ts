@@ -14,6 +14,8 @@ export enum NodeKind {
   Custom = 'customNode'
 }
 
+export type CoreNodeKind = Exclude<NodeKind, NodeKind.Custom | NodeKind.Switch>
+
 export type MinimalNodeProps = Pick<NodeProps, 'id' | 'data' | 'selected'>;
 export type MinimalNodeSpecification = Pick<NodeSpecification, 'color' | 'icon' | 'displayName' | 'documentationUrl'>;
 

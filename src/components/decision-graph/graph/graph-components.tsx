@@ -6,8 +6,8 @@ import { match } from 'ts-pattern';
 
 import { useDecisionGraphState } from '../context/dg-store.context';
 import { DecisionNode } from '../nodes/decision-node';
-import { NodeKind, type NodeSpecification } from '../nodes/specifications/specification-types';
-import { nodeSpecification } from '../nodes/specifications/specifications';
+import { CoreNodeKind, NodeKind, type NodeSpecification } from '../nodes/specifications/specification-types';
+import {  nodeSpecification } from '../nodes/specifications/specifications';
 
 export type GraphComponentsProps = {
   inputDisabled?: boolean;
@@ -128,7 +128,7 @@ export const GraphComponents: React.FC<GraphComponentsProps> = React.memo(({ inp
                             .otherwise(() => disabled)}
                           specification={node}
                           onDragStart={(event) =>
-                            nodeSpecification[node.type as NodeKind] !== undefined
+                            nodeSpecification[node.type as CoreNodeKind] !== undefined
                               ? onDragStart(event, node.type)
                               : onDragStart(event, 'customNode', 'kind' in node ? (node.kind as string) : '')
                           }
