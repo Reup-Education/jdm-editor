@@ -19,6 +19,11 @@ export {
   type DecisionEdge,
 } from './context/dg-store.context';
 
+export {
+  useDevMode,
+  DevModeProvider
+} from './context/dev-mode.context';
+
 export type {
   Simulation,
   SimulationTrace,

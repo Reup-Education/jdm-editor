@@ -7,6 +7,7 @@ import { useDecisionGraphActions } from '../../context/dg-store.context';
 import { GraphNode } from '../graph-node';
 import type { NodeSpecification } from './specification-types';
 import { NodeKind } from './specification-types';
+import { useDevMode } from '../../context/dev-mode.context';
 
 export type NodeFunctionData = string;
 
@@ -22,6 +23,7 @@ export const functionSpecification: NodeSpecification<NodeFunctionData> = {
   }),
   renderNode: ({ id, data, selected, specification }) => {
     const graphActions = useDecisionGraphActions();
+    const { devMode } = useDevMode();
 
     return (
       <GraphNode
@@ -29,11 +31,11 @@ export const functionSpecification: NodeSpecification<NodeFunctionData> = {
         specification={specification}
         name={data.name}
         isSelected={selected}
-        actions={[
+        actions={devMode ? [
           <Button key='edit-function' type='link' onClick={() => graphActions.openTab(id)}>
             Edit Function
           </Button>,
-        ]}
+        ]: []}
       />
     );
   },

@@ -1,13 +1,16 @@
+import { Context } from 'react';
 import type { DragDropManager } from 'dnd-core';
 import { Edge } from 'reactflow';
 import { EdgeChange } from 'reactflow';
 import type { HandleProps } from 'reactflow';
+import { JSX as JSX_2 } from 'react/jsx-runtime';
 import { MenuProps } from 'antd';
 import { MutableRefObject } from 'react';
 import { Node as Node_2 } from 'reactflow';
 import { NodeChange } from 'reactflow';
 import type { NodeProps } from 'reactflow';
 import { ProOptions } from 'reactflow';
+import { PropsWithChildren } from 'react';
 import { default as React_2 } from 'react';
 import { ReactFlowInstance } from 'reactflow';
 import { RefObject } from 'react';
@@ -248,6 +251,14 @@ export declare type DecisionTableType = {
     outputs: TableSchemaItem[];
     rules: Record<string, string>[];
 };
+
+declare type DevModeContext = {
+    devMode: boolean;
+};
+
+declare const DevModeContext: Context<DevModeContext>;
+
+export declare const DevModeProvider: ({ children }: PropsWithChildren) => JSX_2.Element;
 
 declare type DraftUpdateCallback<T> = (draft: WritableDraft<T>) => WritableDraft<T>;
 
@@ -526,6 +537,8 @@ export declare function useDecisionGraphRaw(): {
 export declare function useDecisionGraphReferences<T>(selector: (state: DecisionGraphStoreType['references']) => T, equals?: (a: any, b: any) => boolean): T;
 
 export declare function useDecisionGraphState<T>(selector: (state: DecisionGraphStoreType['state']) => T, equals?: (a: any, b: any) => boolean): T;
+
+export declare const useDevMode: () => DevModeContext;
 
 declare const useGraphClipboard: (reactFlow: RefObject<ReactFlowInstance | null>, wrapper: RefObject<HTMLDivElement | null>) => {
     copyNodes: (nodes: Node_2[]) => Promise<void>;
