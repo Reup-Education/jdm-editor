@@ -208,13 +208,6 @@ export const GraphAside: React.FC<GraphAsideProps> = ({ defaultOpenMenu = 'compo
       />
       <div className={'grl-dg__aside__side-bar'}>
         <div className={'grl-dg__aside__side-bar__top'}>
-          <Tooltip placement='right' title='Components'>
-            <Button
-              type={'primary'}
-              icon={<PlusCircleOutlined />}
-              onClick={() => setMenu((m) => (m !== 'components' ? 'components' : false))}
-            />
-          </Tooltip>
           <Dropdown menu={{ items: uploadItems }} placement='bottomRight' trigger={['click']} arrow>
             <Button type={'text'} disabled={disabled} icon={<CloudUploadOutlined />} />
           </Dropdown>
@@ -247,7 +240,6 @@ export const GraphAside: React.FC<GraphAsideProps> = ({ defaultOpenMenu = 'compo
                     Components
                   </Typography.Text>
                 </div>
-                <Button type={'text'} size='small' icon={<CloseOutlined />} onClick={() => setMenu(false)}></Button>
               </div>
               <div className={'grl-dg__aside__menu__content'}>
                 <GraphComponents inputDisabled={hasInputNode} disabled={!!activeNodeId || disabled} />
