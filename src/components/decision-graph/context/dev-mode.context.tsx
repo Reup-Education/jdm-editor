@@ -9,7 +9,7 @@ const DevModeContext = createContext<DevModeContext>({
   devMode: false
 });
 
-const DevModeProvider = ({ children }: PropsWithChildren) => {
+export const DevModeProvider = ({ children }: PropsWithChildren) => {
   const [devMode, setDevMode] = useState<boolean>(false);
   useHotkeys('shift+d', () => setDevMode(prev => !prev));
   console.log('dev mode:', devMode);
@@ -17,7 +17,7 @@ const DevModeProvider = ({ children }: PropsWithChildren) => {
   return <DevModeContext.Provider value={{devMode}}>{ children }</DevModeContext.Provider>;
 }
 
-const useDevMode = () => {
+export const useDevMode = () => {
   const context = useContext(DevModeContext);
   if (context === undefined) {
     throw new Error('useDevMode must be called with in a DevModeProvider');
@@ -25,5 +25,3 @@ const useDevMode = () => {
 
   return context;
 }
-
-export { DevModeProvider, useDevMode }
