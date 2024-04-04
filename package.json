@@ -11,7 +11,7 @@
   "module": "dist/jdm-editor.js",
   "types": "dist/index.d.ts",
   "files": [
-    "dist/",
+    "dist",
     "package.json",
     "README.md",
     "LICENSE"

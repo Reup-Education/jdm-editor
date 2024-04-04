@@ -18,4 +18,5 @@ export const nodeSpecification = makeNodeSpecification({
   [NodeKind.Function]: functionSpecification,
   [NodeKind.Expression]: expressionSpecification,
   [NodeKind.Switch]: switchSpecification,
+  [NodeKind.Custom]: inputSpecification
 });
