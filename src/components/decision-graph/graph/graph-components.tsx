@@ -55,9 +55,9 @@ export const GraphComponents: React.FC<GraphComponentsProps> = React.memo(({ inp
       const group = node.group?.trim?.() || '';
       if (group.length > 0) {
         if (initialGroups?.[group]) {
-          initialGroups[group].push({ ...node, type: 'customNode' });
+          initialGroups[group].push({ ...node });
         } else {
-          initialGroups[group] = [{ ...node, type: 'customNode' }];
+          initialGroups[group] = [{ ...node }];
         }
       }
     });
@@ -65,9 +65,9 @@ export const GraphComponents: React.FC<GraphComponentsProps> = React.memo(({ inp
     (customNodes || []).forEach((node) => {
       if (!node?.group) {
         if (initialGroups?.['custom']) {
-          initialGroups['custom'].push({ ...node, type: 'customNode' });
+          initialGroups['custom'].push({ ...node });
         } else {
-          initialGroups['custom'] = [{ ...node, type: 'customNode' }];
+          initialGroups['custom'] = [{ ...node }];
         }
       }
     });

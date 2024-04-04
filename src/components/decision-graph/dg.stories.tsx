@@ -8,7 +8,7 @@ import { defaultGraph } from './dg.stories-values';
 import type { GraphRef } from './graph/graph';
 import { createJdmNode } from './nodes/custom-node';
 import { GraphNode } from './nodes/graph-node';
-import type { NodeSpecification } from './nodes/specifications/specification-types';
+import { NodeKind, type NodeSpecification } from './nodes/specifications/specification-types';
 
 const meta: Meta<typeof DecisionGraph> = {
   /* 👇 The title prop is optional.
@@ -103,18 +103,21 @@ export const Extended: Story = {
 const customNodes = [
   createJdmNode({
     kind: 'pingNode',
+    type: NodeKind.Custom,
     displayName: 'Ping',
     group: 'ping',
     shortDescription: 'Used for ping',
   }),
   createJdmNode({
     kind: 'pongNode',
+    type: NodeKind.Custom,
     displayName: 'Pong',
     group: 'ping',
     shortDescription: 'Used for pong',
   }),
   createJdmNode({
     kind: 'rightHandleNode',
+    type: NodeKind.Custom,
     group: 'integrations',
     displayName: 'Right Handle',
     icon: <RightOutlined />,
@@ -122,6 +125,7 @@ const customNodes = [
   }),
   createJdmNode({
     kind: 'leftHandleNode',
+    type: NodeKind.Custom,
     group: 'integrations',
     displayName: 'Left Handle',
     icon: <LeftOutlined />,
@@ -129,6 +133,7 @@ const customNodes = [
   }),
   createJdmNode({
     kind: 'inputsNode',
+    type: NodeKind.Custom,
     group: 'inputs',
     displayName: 'Inputs Form',
     shortDescription: 'With inputs map form',

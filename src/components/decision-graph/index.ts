@@ -5,6 +5,7 @@ export type {
   MinimalNodeSpecification,
   MinimalNodeProps,
 } from './nodes/specifications/specification-types';
+export { NodeKind } from './nodes/specifications/specification-types';
 export type { CustomNodeSpecification } from './nodes/custom-node/index';
 export { createJdmNode } from './nodes/custom-node';
 export { GraphNode, type GraphNodeProps } from './nodes/graph-node';

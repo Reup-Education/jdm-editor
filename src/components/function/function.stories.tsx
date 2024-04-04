@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { Function } from './function';
 import { defaultFunctionValue } from './helpers/libs';
 import type { FunctionDebuggerTrace } from './types';
+import { SimulationTrace, SimulationTraceDataFunction } from '../decision-graph';
 
 const exampleTrace = {
   performance: '2.820417ms',
@@ -43,7 +44,7 @@ const meta: Meta<typeof Function> = {
   args: {
     disabled: false,
     defaultValue: defaultFunctionValue,
-    trace: exampleTrace,
+    trace: exampleTrace as SimulationTrace<SimulationTraceDataFunction>,
   },
   argTypes: {
     value: { table: { disable: true } },

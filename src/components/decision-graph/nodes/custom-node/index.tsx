@@ -6,13 +6,14 @@ import { match } from 'ts-pattern';
 import type { DecisionNode } from '../../context/dg-store.context';
 import { useDecisionGraphActions, useDecisionGraphState } from '../../context/dg-store.context';
 import { GraphNode } from '../graph-node';
-import type { MinimalNodeProps, MinimalNodeSpecification } from '../specifications/specification-types';
+import type { MinimalNodeProps, MinimalNodeSpecification, NodeKind } from '../specifications/specification-types';
 
 type GenerateNodeParams = {
   index: number;
 };
 
 export type CustomNodeSpecification<Data extends object, Component extends string> = {
+  type: NodeKind;
   kind: Component;
   color?: string;
   icon?: React.ReactNode;
@@ -71,6 +72,7 @@ export type BaseNode<
   Inputs extends InputSchema<InputName>[],
   NodeData extends object = CreateDynamicType<Inputs>,
 > = {
+  type: NodeKind;
   kind: Component;
   icon?: React.ReactNode;
   color?: string;
@@ -93,6 +95,7 @@ export const createJdmNode = <
   n: BaseNode<Component, InputName, Inputs>,
 ): CustomNodeSpecification<any, Component> => {
   return {
+    type: n.type,
     kind: n.kind,
     icon: n.icon,
     color: n.color,
