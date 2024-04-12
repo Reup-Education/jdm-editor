@@ -16,7 +16,6 @@
     "README.md",
     "LICENSE"
   ],
-  "prepare": "npm run build",
   "packageManager": "pnpm@8.5.1",
   "scripts": {
     "build": "vite build",
@@ -29,7 +28,8 @@
     "prettier:fix": "pnpm prettier --write",
     "format": "run-s lint prettier",
     "format:fix": "run-s lint:fix prettier:fix",
-    "vite": "vite build"
+    "vite": "vite build",
+    "prepare": "npm run build"
   },
   "resolutions": {
     "enhanced-resolve": "5.10.0"
